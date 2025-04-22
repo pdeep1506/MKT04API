@@ -27,7 +27,7 @@ export const getProductById = (req, res) => {
 
 export const createProduct = (req, res) => {
     const newProduct = {
-        id: uuidv4(),
+        // id: uuidv4(),
         ...req.body,
         createdAt: new Date()
     };
@@ -36,13 +36,19 @@ export const createProduct = (req, res) => {
 };
 
 export const updateProduct = (req, res) => {
+   
     const index = products.findIndex(p => p.id === req.params.id);
+    
     if (index === -1) {
         return res.status(404).json({ message: "Product not found" });
     }
+    
     products[index] = { ...products[index], ...req.body };
+    
+   
     res.status(200).json({ message: "Product updated", data: products[index] });
 };
+
 
 export const deleteProduct = (req, res) => {
     const index = products.findIndex(p => p.id === req.params.id);
