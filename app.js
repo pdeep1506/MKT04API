@@ -7,7 +7,7 @@ import cookieParser from 'cookie-parser';
 
 import productRoute from './routes/product.js'
 
-const port = process.env.PORT || 8000
+const port = process.env.PORT || 3000
 
 app.use(cors());
 app.use(express.json())
@@ -17,6 +17,10 @@ app.use(cookieParser())
 app.get('/', (req, res) => {
     res.send('Hello from Node.js on Azure!');
   });
+  app.get('/health', (req, res) => {
+    res.send('API is healthy!');
+});
+
   
 app.use('/api/product',productRoute)
 app.listen(port,'127.0.0.1',()=>{
