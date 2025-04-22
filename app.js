@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 
   
 app.use('/api/product',productRoute)
-app.listen(port,'127.0.0.1',()=>{
+app.listen(port,()=>{
     console.log(`Listening on the port no ${port}`)
 })
 
