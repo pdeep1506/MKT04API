@@ -1,6 +1,6 @@
 import products from '../data/products.js'
-import { v4 as uuidv4 } from 'uuid';
-
+// import { v4 as uuidv4 } from 'uuid';
+import jwt from 'jsonwebtoken';
 export const getAllProducts = (req, res) => {
     const { new: isNew, category } = req.query;
 
