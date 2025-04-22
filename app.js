@@ -14,7 +14,10 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(cookieParser())
 
-
+app.get('/', (req, res) => {
+    res.send('Hello from Node.js on Azure!');
+  });
+  
 app.use('/api/product',productRoute)
 app.listen(port,'127.0.0.1',()=>{
     console.log(`Listening on the port no ${port}`)
